@@ -8,7 +8,7 @@ class UsersController {
   async create(request, response) {
 
     const { name, email, password } = request.body
-    
+
     if ( !name || !email || !password ) {
       throw new AppError("Valor obrigatório ausente.")
     }
@@ -18,12 +18,12 @@ class UsersController {
     }
 
     const database = await sqliteConnection()
-    
+
     const checkUserExists = await database.get("SELECT email FROM users WHERE lower(email) = (?)", [ email?.toLowerCase() ])
-    
+
     console.log("User exists:", checkUserExists)
 
-    if (checkUserExists) { 
+    if (checkUserExists) {
       throw new AppError("Este e-mail já está em uso.", 406)
     }
 
@@ -45,7 +45,7 @@ class UsersController {
 
     const database = await sqliteConnection()
     const user = await database.get("SELECT * FROM users WHERE id = (?)", [ id ])
-    
+
     if (!user) throw new AppError("Usuário não encontrado!")
 
     if (email && !validEmail(email)) {
@@ -87,7 +87,7 @@ class UsersController {
     )
 
     response.status(200).json()
-    
+
   }
 }
 
