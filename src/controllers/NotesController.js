@@ -34,6 +34,13 @@ class NotesController {
     response.json()
   }
 
+  async show(request, response) {
+
+
+    response.json({ ...request.body, ...request.params })
+
+  }
+
 }
 
 module.exports = NotesController
