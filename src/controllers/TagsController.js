@@ -4,8 +4,11 @@ class TagsController {
 
   async index(request, response) {
 
+    const { user_id } = request.body
 
-    response.json({ ...request.body, ...request.query })
+    const tags = await knex('tags').select('*').where({ user_id })
+
+    response.json(tags)
 
   }
 }
