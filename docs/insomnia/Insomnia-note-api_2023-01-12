@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2023-01-19T20:57:53.498Z",
+  "__export_date": "2023-01-21T01:02:40.091Z",
   "__export_source": "insomnia.desktop.app:v2022.7.4",
   "resources": [
     {
@@ -56,89 +56,9 @@
       "_type": "workspace"
     },
     {
-      "_id": "req_ce19a8ad27e144c1a572839fa7cdd096",
-      "parentId": "fld_7c532139bcd04272a621515379909423",
-      "modified": 1674160938590,
-      "created": 1674155585146,
-      "url": "{{ _.BASE_URL }}/{{ _.RESOURCE }}/7",
-      "name": "Create",
-      "description": "",
-      "method": "POST",
-      "body": {
-        "mimeType": "application/json",
-        "text": "{\n\t\"title\": \"Introdução html\",\n\t\"description\": \"Essa é uma nota de exemplo\",\n\t\"tags\": [\n\t\t\"html\",\n\t\t\"css\"\n\t],\n\t\"links\": [\n\t\t\"link1\",\n\t\t\"link2\"\n\t]\n}"
-      },
-      "parameters": [],
-      "headers": [
-        {
-          "name": "Content-Type",
-          "value": "application/json"
-        }
-      ],
-      "authentication": {},
-      "metaSortKey": -1673557943747,
-      "isPrivate": false,
-      "settingStoreCookies": true,
-      "settingSendCookies": true,
-      "settingDisableRenderRequestBody": false,
-      "settingEncodeUrl": true,
-      "settingRebuildPath": true,
-      "settingFollowRedirects": "global",
-      "_type": "request"
-    },
-    {
-      "_id": "fld_7c532139bcd04272a621515379909423",
-      "parentId": "wrk_901e245586404428bb77c7b6719efa01",
-      "modified": 1674155638247,
-      "created": 1674155585144,
-      "name": "Notes",
-      "description": "",
-      "environment": {
-        "RESOURCE": "notes"
-      },
-      "environmentPropertyOrder": {
-        "&": [
-          "RESOURCE"
-        ]
-      },
-      "metaSortKey": -1673557935784.5,
-      "_type": "request_group"
-    },
-    {
-      "_id": "req_c0c5e96045f6462c9e9e477b3085bd09",
-      "parentId": "fld_7c532139bcd04272a621515379909423",
-      "modified": 1674161589581,
-      "created": 1674161566127,
-      "url": "{{ _.BASE_URL }}/{{ _.RESOURCE }}/1",
-      "name": "Show",
-      "description": "",
-      "method": "GET",
-      "body": {
-        "mimeType": "application/json",
-        "text": "{\n\t\"title\": \"Introdução\"\n}"
-      },
-      "parameters": [],
-      "headers": [
-        {
-          "name": "Content-Type",
-          "value": "application/json"
-        }
-      ],
-      "authentication": {},
-      "metaSortKey": -1673557943722,
-      "isPrivate": false,
-      "settingStoreCookies": true,
-      "settingSendCookies": true,
-      "settingDisableRenderRequestBody": false,
-      "settingEncodeUrl": true,
-      "settingRebuildPath": true,
-      "settingFollowRedirects": "global",
-      "_type": "request"
-    },
-    {
       "_id": "req_97111974906d4e6db79fcec07d9c8ee8",
       "parentId": "fld_fc353a0fd3484fecb504f1de89b98765",
-      "modified": 1674097461836,
+      "modified": 1674230476807,
       "created": 1673557943747,
       "url": "{{ _.BASE_URL }}/{{ _.RESOURCE }}",
       "name": "Create",
@@ -146,7 +66,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"name\": \"John\",\n\t\"email\": \"John@email.com.br\",\n\t\"password\": \"1234\"\n}"
+        "text": "{\n\t\"name\": \"Jane Doe\",\n\t\"email\": \"Jane@email.com.br\",\n\t\"password\": \"1234\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -169,7 +89,7 @@
     {
       "_id": "fld_fc353a0fd3484fecb504f1de89b98765",
       "parentId": "wrk_901e245586404428bb77c7b6719efa01",
-      "modified": 1673894092537,
+      "modified": 1674257411044,
       "created": 1673557935822,
       "name": "Users",
       "description": "",
@@ -181,21 +101,21 @@
           "RESOURCE"
         ]
       },
-      "metaSortKey": -1673557935759.5,
+      "metaSortKey": -1673557935803.25,
       "_type": "request_group"
     },
     {
       "_id": "req_23b007257a0e42c4a6305fc454df934d",
       "parentId": "fld_fc353a0fd3484fecb504f1de89b98765",
-      "modified": 1674097496506,
+      "modified": 1674230642979,
       "created": 1673901900742,
-      "url": "{{ _.BASE_URL }}/{{ _.RESOURCE }}/7",
+      "url": "{{ _.BASE_URL }}/{{ _.RESOURCE }}/2",
       "name": "Update",
       "description": "",
       "method": "PUT",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"name\": \"Evandro\",\n\t\"email\": \"evandro@email.com\",\n\t\"password\": \"123456\",\n\t\"new_password\": \"123456\"\n}"
+        "text": "{\n\t\"name\": \"Jane Doe\",\n\t\"email\": \"Jane@email.com\",\n\t\"password\": \"1234\",\n\t\"new_password\": \"1234\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -214,6 +134,194 @@
       "settingRebuildPath": true,
       "settingFollowRedirects": "global",
       "_type": "request"
+    },
+    {
+      "_id": "req_ce19a8ad27e144c1a572839fa7cdd096",
+      "parentId": "fld_7c532139bcd04272a621515379909423",
+      "modified": 1674242536644,
+      "created": 1674155585146,
+      "url": "{{ _.BASE_URL }}/{{ _.RESOURCE }}/2",
+      "name": "Create",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"title\": \"Javascript\",\n\t\"description\": \"Essa é uma nota de exemplo\",\n\t\"tags\": [\n\t\t\"Node\",\n\t\t\"React\"\n\t],\n\t\"links\": [\n\t\t\"link1\",\n\t\t\"link2\"\n\t]\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1673557943747,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_7c532139bcd04272a621515379909423",
+      "parentId": "wrk_901e245586404428bb77c7b6719efa01",
+      "modified": 1674258970656,
+      "created": 1674155585144,
+      "name": "Notes",
+      "description": "",
+      "environment": {
+        "RESOURCE": "notes"
+      },
+      "environmentPropertyOrder": {
+        "&": [
+          "RESOURCE"
+        ]
+      },
+      "metaSortKey": -1673557935784.5,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_494acab5833b4ca1ae6d01835d54f45a",
+      "parentId": "fld_7c532139bcd04272a621515379909423",
+      "modified": 1674262914567,
+      "created": 1674229342853,
+      "url": "{{ _.BASE_URL }}/{{ _.RESOURCE }}/6",
+      "name": "Delete",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1673557943734.5,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_c0c5e96045f6462c9e9e477b3085bd09",
+      "parentId": "fld_7c532139bcd04272a621515379909423",
+      "modified": 1674241917722,
+      "created": 1674161566127,
+      "url": "{{ _.BASE_URL }}/{{ _.RESOURCE }}/4",
+      "name": "Show",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1673557943722,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_80d46c3d7ca041968c0156c6fdcf2863",
+      "parentId": "fld_7c532139bcd04272a621515379909423",
+      "modified": 1674262199278,
+      "created": 1674233471117,
+      "url": "{{ _.BASE_URL }}/{{ _.RESOURCE }}",
+      "name": "Index",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "id": "pair_2fc3e536b0c04e9cab4d98b37b5f5e38",
+          "name": "user_id",
+          "value": "1",
+          "description": ""
+        },
+        {
+          "id": "pair_0e1fdd9fb5dd4e8194afd54667febe5f",
+          "name": "title",
+          "value": "",
+          "description": "",
+          "disabled": false
+        },
+        {
+          "id": "pair_dd1c20c2b60b4550aff9d37088f88310",
+          "name": "tags",
+          "value": "",
+          "description": "",
+          "disabled": false
+        }
+      ],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1673557943697,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_12a24809fa554b4886d0b9fe383a9b08",
+      "parentId": "fld_426dcf1fdd9e419885277c6bd0aa4ff9",
+      "modified": 1674262435893,
+      "created": 1674258927289,
+      "url": "{{ _.BASE_URL }}/{{ _.RESOURCE }}/",
+      "name": "Index",
+      "description": "",
+      "method": "GET",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"user_id\": \"1\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1673557943734.5,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_426dcf1fdd9e419885277c6bd0aa4ff9",
+      "parentId": "wrk_901e245586404428bb77c7b6719efa01",
+      "modified": 1674258980916,
+      "created": 1674257369126,
+      "name": "Tags",
+      "description": "",
+      "environment": {
+        "RESOURCE": "tags"
+      },
+      "environmentPropertyOrder": {
+        "&": [
+          "RESOURCE"
+        ]
+      },
+      "metaSortKey": -1673557935734.5,
+      "_type": "request_group"
     },
     {
       "_id": "env_556a13cadbfa86609b35f25e300ff9fbcb3fd48a",
@@ -250,7 +358,7 @@
     {
       "_id": "env_6d9a9cd9a8e2442d919b45d90dab7b9e",
       "parentId": "env_556a13cadbfa86609b35f25e300ff9fbcb3fd48a",
-      "modified": 1673557917547,
+      "modified": 1674164925960,
       "created": 1673557771124,
       "name": "Dev",
       "data": {
@@ -267,7 +375,7 @@
           "BASE_URL"
         ]
       },
-      "color": null,
+      "color": "#1eff00",
       "isPrivate": false,
       "metaSortKey": 1673557771124,
       "_type": "environment"
