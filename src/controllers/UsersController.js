@@ -34,7 +34,7 @@ class UsersController {
       [ name, email, hashedPassword ]
     )
 
-    response.status(201).json({ name, email, password: "***" })
+    return response.status(201).json({ name, email, password: '***' })
 
   }
 
@@ -86,7 +86,7 @@ class UsersController {
       [user.name, user.email, user.password, id]
     )
 
-    response.status(200).json()
+    return response.status(200).json()
 
   }
 }
