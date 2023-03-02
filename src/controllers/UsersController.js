@@ -17,11 +17,13 @@ class UsersController {
       throw new AppError('E-mail inválido.')
     }
 
+    const lowerEmail = email.toLowerCase()
+
     const database = await sqliteConnection()
 
-    const checkUserExists = await database.get("SELECT email FROM users WHERE lower(email) = (?)", [ email?.toLowerCase() ])
+    const checkUserExists = await database.get("SELECT email FROM users WHERE lower(email) = (?)", [ lowerEmail ])
 
-    console.log("User exists:", checkUserExists)
+    // console.log("User exists:", checkUserExists)
 
     if (checkUserExists) {
       throw new AppError("Este e-mail já está em uso.", 406)
@@ -31,7 +33,7 @@ class UsersController {
 
     await database.run(
       "INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
-      [ name, email, hashedPassword ]
+      [ name, lowerEmail, hashedPassword ]
     )
 
     return response.status(201).json({ name, email, password: '***' })
@@ -40,11 +42,14 @@ class UsersController {
 
   async update(request, response) {
 
-    const { id } = request.params
+    //const { id } = request.params
+    const user_id = request.user.id
     const { name, email, password, new_password  } = request.body
 
     const database = await sqliteConnection()
-    const user = await database.get("SELECT * FROM users WHERE id = (?)", [ id ])
+    const user = await database.get('SELECT * FROM users WHERE id = (?)', [
+      user_id,
+    ])
 
     if (!user) throw new AppError("Usuário não encontrado!")
 
@@ -52,7 +57,7 @@ class UsersController {
       throw new AppError('E-mail inválido.')
     }
 
-    console.log("email: ", email?.toUpperCase())
+    // console.log("email: ", email?.toUpperCase())
     const userWithUpdatedEmail = await database.get("SELECT * FROM users WHERE lower(email) = (?)", [ email?.toLowerCase() ])
 
     if (userWithUpdatedEmail && userWithUpdatedEmail.id !== user.id) {
@@ -83,7 +88,7 @@ class UsersController {
       password = ?,
       updated_at = datetime('now')
       WHERE id = ? `,
-      [user.name, user.email, user.password, id]
+      [user.name, user.email, user.password, user_id]
     )
 
     return response.status(200).json()

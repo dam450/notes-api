@@ -4,42 +4,50 @@ class NotesController {
 
   async create(request, response) {
     const { title, description, tags, links } = request.body
-    const { user_id } = request.params
+    const user_id = request.user.id
 
-    const note_id = await knex('notes').insert({
+    const note = await knex('notes').insert({
       title,
       description,
       user_id
     })
 
+    const note_id = note[0]
+
     const linksInsert = links.map(link => {
       return {
         note_id,
-        url: link
+        url: link,
       }
     })
 
-    await knex('links').insert(linksInsert)
+    console.log('links: ', linksInsert, (linksInsert.length >0))
+
+
+    if (linksInsert.length > 0) await knex('links').insert(linksInsert)
 
     const tagsInsert = tags.map(name => {
       return {
         note_id,
         user_id,
-        name
+        name,
       }
     })
 
-    await knex('tags').insert(tagsInsert)
+    if (tagsInsert.length) await knex('tags').insert(tagsInsert)
 
     return response.json()
   }
 
   async show(request, response) {
     const { id } = request.params
+    const user_id = request.user.id
 
     const note = await knex('notes').where({ id }).first()
 
     if (!note) return response.status(404).end()
+
+    if (note.user_id !== user_id) return response.status(401).end()
 
     const tags = await knex('tags').where({ note_id: id }).orderBy('name')
     const links = await knex('links').where({ note_id: id }).orderBy('created_at')
@@ -50,17 +58,26 @@ class NotesController {
 
   async delete(request, response) {
     const { id } = request.params
+    const user_id = request.user.id
 
-    const note = await knex('notes').where({ id }).delete()
+    const note = await knex('notes').where({ id }).first()
+    if (!note)
+      return response.status(404).end()
 
-    if (!note) return response.status(404).json()
+    if (note.user_id !== user_id)
+      return response.status(401).json({ note, user_id })
+
+    const noteDeleted = await knex('notes').where({ id }).delete()
+
+    if (!noteDeleted) return response.status(408).json()
 
     return response.json()
 
   }
 
   async index(request, response) {
-    const { user_id, title, tags } = request.query
+    const { title, tags } = request.query
+    const user_id = request.user.id
 
     let notes
 
@@ -74,7 +91,8 @@ class NotesController {
         .whereLike('notes.title', `%${title}%`)
         .whereIn('name', filterTags)
         .innerJoin('notes', 'notes.id', 'tags.note_id')
-        .orderBy('notes.title').groupBy('notes.id')
+        .orderBy('notes.title')
+        .groupBy('notes.id')
 
 
     } else {
