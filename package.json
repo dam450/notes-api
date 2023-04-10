@@ -1,17 +1,20 @@
 {
   "name": "rocketnotes-api",
   "version": "1.0.0",
+  "type": "commonjs",
   "description": "Projeto Rocketseat Explorer de desenvolvimento de uma API",
   "main": "./src/server.js",
   "scripts": {
     "start": "node ./src/server.js",
     "dev": "nodemon ./src/server.js",
-    "migrate": "knex migrate:latest"
+    "migrate": "knex migrate:latest",
+    "test": "jest "
   },
   "keywords": [],
   "author": "dam450 <dam450.dev@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "jest": "^29.5.0",
     "nodemon": "^2.0.20"
   },
   "dependencies": {
